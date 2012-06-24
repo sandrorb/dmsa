@@ -11,3 +11,6 @@ INCLUDEPATH += .
 HEADERS += dmsa.h mainwindow.h pessoa.h
 FORMS += mainwindow.ui
 SOURCES += dmsa.cpp main.cpp mainwindow.cpp pessoa.cpp
+
+OTHER_FILES += \
+    notes.txt

@@ -46,8 +46,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->alturaTextBox->setText(QString::number(pessoa.getAltura()));
 
     //ui->labelSrB->setStyleSheet(" background-color: yellow ");
-    statusBar()->showMessage("DMSA v0.1 (c) Sandro Boschetti");
-    statusBar()->setStyleSheet("background-color: lightblue");
+//    statusBar()->showMessage("DMSA v0.1 (c) Sandro Boschetti");
+//    statusBar()->setStyleSheet("background-color: lightblue");
 
     /* Vincula o botao calcular com a respectiva funcao */
     QObject::connect(ui->pushButtonCalcular, SIGNAL(clicked()), this, SLOT(calcular()) );
