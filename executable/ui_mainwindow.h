@@ -486,7 +486,10 @@ public:
         msgText = new QPlainTextEdit(centralWidget);
         msgText->setObjectName(QStringLiteral("msgText"));
         msgText->setGeometry(QRect(10, 430, 671, 61));
-        msgText->setStyleSheet(QStringLiteral("background-color: lightblue"));
+        QFont font;
+        font.setFamily(QStringLiteral("Lucida Grande"));
+        msgText->setFont(font);
+        msgText->setStyleSheet(QStringLiteral("background-color: lightblue; color: red;"));
         msgText->setFrameShape(QFrame::StyledPanel);
         msgText->setReadOnly(true);
         label_32 = new QLabel(centralWidget);

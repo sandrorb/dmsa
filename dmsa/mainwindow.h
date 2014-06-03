@@ -19,6 +19,8 @@ public:
     ~MainWindow();
     float profundidadeRenal, fatorK;
 
+    int convertTextToInt(QString intString);
+
     void  validadeFields();
 
     //void calculaFatorK();

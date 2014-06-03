@@ -7,6 +7,9 @@
 #include "dmsa.h"
 #include "pessoa.h"
 
+#include <string>
+#include <sstream>
+
 #include <stdexcept>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -64,25 +67,30 @@ void MainWindow::validadeFields(){
     //ui->msgText->appendPlainText("Mensagem de erro! (Teste)");
 }
 
+int MainWindow::convertTextToInt(QString intString){
+    bool ok = false;
+    int result = intString.toInt(&ok,10);
+    if (!ok) {
+        //std::cout << "Conversão de "<< intString.toStdString() << " em número falou!" << std::endl;
+        std::stringstream ss;
+        ss << "Conversão de \""<< intString.toStdString() << "\" em número falou!"
+           << " No campo idade só é permitido números!" << std::endl;
+        std::string myMsg = ss.str();
+        ui->msgText->appendPlainText(QString::fromStdString(myMsg));
+    } else{
+        ui->msgText->setPlainText("Ok!");
+    }
+    return result;
+}
+
 void MainWindow::calcular() {
 
     //validadeFields();
-    try{
-        bool ok = false;
-        int idade = ui->idadeTextBox->text().toInt(&ok,10);
-        std::cout << "Idade: " << idade << std::endl;
-        if (!ok) {
-            std::cout << "Conversao falou!" << std::endl;
-        }else{
-            std::cout << "Conversao Ok!" << std::endl;
-        }
-        pessoa.setIdade( idade );
-    //pessoa.setIdade( ui->idadeTextBox->text().toInt() );
+
+    pessoa.setIdade( convertTextToInt( ui->idadeTextBox->text() ) );
+
     pessoa.setPeso( ui->pesoTextBox->text().toInt() );
     pessoa.setAltura( ui->alturaTextBox->text().toInt() );
-    } catch(std::runtime_error& e){
-        std::cout << "xxxxxxxx" << std::endl;
-    }
 
     dmsa.setPessoa(pessoa);
 

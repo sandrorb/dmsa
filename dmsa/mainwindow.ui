@@ -710,8 +710,13 @@
       <height>61</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Lucida Grande</family>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: lightblue</string>
+     <string notr="true">background-color: lightblue; color: red;</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
