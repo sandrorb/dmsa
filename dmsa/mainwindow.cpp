@@ -7,6 +7,8 @@
 #include "dmsa.h"
 #include "pessoa.h"
 
+#include <stdexcept>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -65,12 +67,26 @@ void MainWindow::validadeFields(){
 void MainWindow::calcular() {
 
     //validadeFields();
-
-    pessoa.setIdade( ui->idadeTextBox->text().toInt() );
+    try{
+        bool ok = false;
+        int idade = ui->idadeTextBox->text().toInt(&ok,10);
+        std::cout << "Idade: " << idade << std::endl;
+        if (!ok) {
+            std::cout << "Conversao falou!" << std::endl;
+        }else{
+            std::cout << "Conversao Ok!" << std::endl;
+        }
+        pessoa.setIdade( idade );
+    //pessoa.setIdade( ui->idadeTextBox->text().toInt() );
     pessoa.setPeso( ui->pesoTextBox->text().toInt() );
     pessoa.setAltura( ui->alturaTextBox->text().toInt() );
+    } catch(std::runtime_error& e){
+        std::cout << "xxxxxxxx" << std::endl;
+    }
+
     dmsa.setPessoa(pessoa);
 
+    /* No need for this function get from pessoa since pessoa is already in dmsa (???) */
     profundidadeRenal = dmsa.calculaProfundidadeRenal(pessoa.getIdade(), pessoa.getPeso(), pessoa.getAltura());
     fatorK = dmsa.calculaFatorK(profundidadeRenal);
 
