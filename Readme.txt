@@ -5,4 +5,7 @@ The MacOSX executable lives in the folder "executable". Its name is dmsa.app (Ma
 applications rest in a folder). To run it, download the entire project (see the download
 link on the right) and double click the "folder" app.
 
-For more information, please contact me.
+If a file dmsa.exe is found in the executable folder, this file is a windows
+executable which was cross compiled in MacOSX for windows using MXE tool.
+
+For more information -> contact me.
