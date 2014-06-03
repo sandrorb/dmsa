@@ -1,6 +1,7 @@
 #include "dmsa.h"
 #include "pessoa.h"
 
+
 Dmsa::Dmsa() :  padrao(100), padraoBG(0), padraoArea(1), padraoBGArea(1), padraoTempo(1),
                 padraoSeringaCheia(100), padraoSeringaVazia(0), pacienteSeringaCheia(100), pacienteSeringaVazia(0),
                 rimDireito(50), rimDireitoBG(0), rimDireitoArea(1), rimDireitoBGArea(1), rimDireitoTempo(1),

@@ -54,6 +54,8 @@ public:
     void setRimEsquerdoTempo(int rimEsquerdoTempo);
     int  getRimEsquerdoTempo();
 
+
+
 private:
     Pessoa pessoa;
 

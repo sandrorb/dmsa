@@ -17,9 +17,10 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    Dmsa dmsa;
     Pessoa pessoa;
     float a, b, c, profundidadeRenal, fatorK;
+
+    void validadeFields();
 
 public slots:
     void calcular();
@@ -27,6 +28,7 @@ public slots:
 
 private:
     Ui::MainWindow *ui;
+    Dmsa dmsa;
 
 };
 

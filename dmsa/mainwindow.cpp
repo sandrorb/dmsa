@@ -58,7 +58,17 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::validadeFields(){
+    // Here is to put all the validation code for the fields.
+    //ui->msgText->appendPlainText("Mensagem de erro! (Teste)");
+}
+
+
+/* This member function must not live here. It must, perhaps, be in the Dmsa class. */
+
 void MainWindow::calcular() {
+
+    //validadeFields();
 
     pessoa.setIdade( ui->idadeTextBox->text().toInt() );
     pessoa.setPeso( ui->pesoTextBox->text().toInt() );
