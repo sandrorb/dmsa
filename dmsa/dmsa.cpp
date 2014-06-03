@@ -195,3 +195,32 @@ int Dmsa::getRimEsquerdoTempo(){
     return this->rimEsquerdoTempo;
 }
 
+
+float Dmsa::calculaProfundidadeRenal(int idade, int peso, int altura){
+
+    float a(0), b(0), c(0);
+
+    if ((idade > 0) && (idade <= 9)) {
+            a =  2.364F;
+            b =  0.083F;
+            c = -0.281F;
+    } else if ((idade > 9) && (idade <= 19)) {
+            a =  3.686F;
+            b =  0.028F;
+            c = -0.248F;
+    } else {
+            a = -1.017F;
+            b =  0.049F;
+            c =  2.198F;
+    }
+
+    // ?????? A altura deve passar de cm para metro ???????
+    return a + (b * peso) + (c * (altura / 100.0F) );
+}
+
+float Dmsa::calculaFatorK(float profundidadeRenal){
+    return ( 0.00023F * (profundidadeRenal * profundidadeRenal * profundidadeRenal) )
+             + ( 0.0012F * ( profundidadeRenal * profundidadeRenal) )
+             - ( 0.1332F * profundidadeRenal) + 1.5015F;
+}
+

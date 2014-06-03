@@ -19,11 +19,10 @@ public:
     ~MainWindow();
     float profundidadeRenal, fatorK;
 
-    void validadeFields();
-    float calculaProfundidadeRenal(int idade, int peso, int altura);
-    float calculaFatorK(float profundidadeRenal);
+    void  validadeFields();
 
-    void calculaFatorK();
+    //void calculaFatorK();
+
 public slots:
     void calcular();
 //    void calcularCaptacao();

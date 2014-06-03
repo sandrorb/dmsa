@@ -45,9 +45,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pesoTextBox->setText(QString::number(pessoa.getPeso()));
     ui->alturaTextBox->setText(QString::number(pessoa.getAltura()));
 
-    //ui->labelSrB->setStyleSheet(" background-color: yellow ");
-    statusBar()->showMessage("DMSA v0.3 (c) 2014 - Sandro Boschetti");
-    statusBar()->setStyleSheet("background-color: lightblue");
+    statusBar()->showMessage("DMSA v0.3 (c) 2014 - by Sandro Boschetti");
+    statusBar()->setStyleSheet("background-color: lightgray");
 
     /* Vincula o botao calcular com a respectiva funcao */
     QObject::connect(ui->pushButtonCalcular, SIGNAL(clicked()), this, SLOT(calcular()) );
@@ -63,36 +62,6 @@ void MainWindow::validadeFields(){
     //ui->msgText->appendPlainText("Mensagem de erro! (Teste)");
 }
 
-/* This member functions must not live here. It must, perhaps, be in the Dmsa class. */
-
-float MainWindow::calculaProfundidadeRenal(int idade, int peso, int altura){
-
-    float a(0), b(0), c(0);
-
-    if ((idade > 0) && (idade <= 9)) {
-            a =  2.364F;
-            b =  0.083F;
-            c = -0.281F;
-    } else if ((idade > 9) && (idade <= 19)) {
-            a =  3.686F;
-            b =  0.028F;
-            c = -0.248F;
-    } else {
-            a = -1.017F;
-            b =  0.049F;
-            c =  2.198F;
-    }
-
-    // ?????? A altura deve passar de cm para metro ???????
-    return a + (b * peso) + (c * (altura / 100.0F) );
-}
-
-float MainWindow::calculaFatorK(float profundidadeRenal){
-    return ( 0.00023F * (profundidadeRenal * profundidadeRenal * profundidadeRenal) )
-             + ( 0.0012F * ( profundidadeRenal * profundidadeRenal) )
-             - ( 0.1332F * profundidadeRenal) + 1.5015F;
-}
-
 void MainWindow::calcular() {
 
     //validadeFields();
@@ -102,9 +71,8 @@ void MainWindow::calcular() {
     pessoa.setAltura( ui->alturaTextBox->text().toInt() );
     dmsa.setPessoa(pessoa);
 
-    profundidadeRenal = calculaProfundidadeRenal(pessoa.getIdade(), pessoa.getPeso(), pessoa.getAltura());
-
-    fatorK = calculaFatorK(profundidadeRenal);
+    profundidadeRenal = dmsa.calculaProfundidadeRenal(pessoa.getIdade(), pessoa.getPeso(), pessoa.getAltura());
+    fatorK = dmsa.calculaFatorK(profundidadeRenal);
 
     ui->profundidadeRenalLabel->setText(QString::number(profundidadeRenal, 3, 3));
     ui->fatorKLabel->setText(QString::number(fatorK, 3, 3));

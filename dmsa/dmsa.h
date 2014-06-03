@@ -54,9 +54,8 @@ public:
     void setRimEsquerdoTempo(int rimEsquerdoTempo);
     int  getRimEsquerdoTempo();
 
-    //void calculaCaptacao();
-
-
+    float calculaProfundidadeRenal(int idade, int peso, int altura);
+    float calculaFatorK(float profundidadeRenal);
 
 private:
     Pessoa pessoa;
