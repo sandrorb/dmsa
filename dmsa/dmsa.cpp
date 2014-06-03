@@ -7,6 +7,7 @@ Dmsa::Dmsa() :  padrao(100), padraoBG(0), padraoArea(1), padraoBGArea(1), padrao
                 rimDireito(50), rimDireitoBG(0), rimDireitoArea(1), rimDireitoBGArea(1), rimDireitoTempo(1),
                 rimEsquerdo(50), rimEsquerdoBG(0), rimEsquerdoArea(1), rimEsquerdoBGArea(1), rimEsquerdoTempo(1)
 {
+  /* It seems pessoa is not initialized. Does it need to be? */
 }
 
 Dmsa::~Dmsa(){

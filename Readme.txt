@@ -1,5 +1,6 @@
 Program being developed in Qt/C++ for MacOSX to calculate the DMSA absolut uptake
 in nuclear medicine.
 
-The executable can be obtained in the folder build-dmsa-Desktop_Qt_5_2_0_clang_64bit-Release.
-Its name is dmsa.app.
+The executable can be obtained in the folder "executable".
+Its name is dmsa.app (MacOSX applications rest in a folder). Download the entire project
+and execute (double click) this folder.

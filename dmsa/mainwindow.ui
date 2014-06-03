@@ -10,6 +10,12 @@
     <height>537</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -347,7 +353,7 @@
       <height>152</height>
      </rect>
     </property>
-    <layout class="QFormLayout" name="formLayout_3">
+    <layout class="QFormLayout" name="formLayoutRimEsquerdo">
      <item row="0" column="0">
       <widget class="QLabel" name="label_9">
        <property name="text">
@@ -424,7 +430,7 @@
       <height>152</height>
      </rect>
     </property>
-    <layout class="QFormLayout" name="formLayout_4">
+    <layout class="QFormLayout" name="formLayoutRimDireito">
      <property name="fieldGrowthPolicy">
       <enum>QFormLayout::FieldsStayAtSizeHint</enum>
      </property>
@@ -576,7 +582,7 @@
       <height>151</height>
      </rect>
     </property>
-    <layout class="QFormLayout" name="formLayout">
+    <layout class="QFormLayout" name="formLayoutPadrao">
      <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
@@ -652,7 +658,7 @@
       <height>121</height>
      </rect>
     </property>
-    <layout class="QFormLayout" name="formLayout_2">
+    <layout class="QFormLayout" name="formLayoutSeringas">
      <item row="0" column="0">
       <widget class="QLabel" name="label_5">
        <property name="text">
@@ -738,23 +744,13 @@
      <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuSobre">
-    <property name="title">
-     <string>Sobre</string>
-    </property>
-   </widget>
-   <addaction name="menuSobre"/>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
   </widget>
-  <action name="actionTeste">
-   <property name="text">
-    <string>Teste</string>
-   </property>
-  </action>
-  <action name="actionSrB">
-   <property name="text">
-    <string>SrB</string>
-   </property>
-  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

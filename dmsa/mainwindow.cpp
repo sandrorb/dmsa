@@ -63,21 +63,11 @@ void MainWindow::validadeFields(){
     //ui->msgText->appendPlainText("Mensagem de erro! (Teste)");
 }
 
+/* This member functions must not live here. It must, perhaps, be in the Dmsa class. */
 
-/* This member function must not live here. It must, perhaps, be in the Dmsa class. */
+float MainWindow::calculaProfundidadeRenal(int idade, int peso, int altura){
 
-void MainWindow::calcular() {
-
-    //validadeFields();
-
-    pessoa.setIdade( ui->idadeTextBox->text().toInt() );
-    pessoa.setPeso( ui->pesoTextBox->text().toInt() );
-    pessoa.setAltura( ui->alturaTextBox->text().toInt() );
-    dmsa.setPessoa(pessoa);
-
-    int idade   = dmsa.getPessoa().getIdade();
-    int peso    = dmsa.getPessoa().getPeso();
-    int altura  = dmsa.getPessoa().getAltura();
+    float a(0), b(0), c(0);
 
     if ((idade > 0) && (idade <= 9)) {
             a =  2.364F;
@@ -94,11 +84,27 @@ void MainWindow::calcular() {
     }
 
     // ?????? A altura deve passar de cm para metro ???????
-    profundidadeRenal = a + (b * peso) + (c * (altura / 100.0F) );
+    return a + (b * peso) + (c * (altura / 100.0F) );
+}
 
-    fatorK = ( 0.00023F * (profundidadeRenal * profundidadeRenal * profundidadeRenal) )
+float MainWindow::calculaFatorK(float profundidadeRenal){
+    return ( 0.00023F * (profundidadeRenal * profundidadeRenal * profundidadeRenal) )
              + ( 0.0012F * ( profundidadeRenal * profundidadeRenal) )
              - ( 0.1332F * profundidadeRenal) + 1.5015F;
+}
+
+void MainWindow::calcular() {
+
+    //validadeFields();
+
+    pessoa.setIdade( ui->idadeTextBox->text().toInt() );
+    pessoa.setPeso( ui->pesoTextBox->text().toInt() );
+    pessoa.setAltura( ui->alturaTextBox->text().toInt() );
+    dmsa.setPessoa(pessoa);
+
+    profundidadeRenal = calculaProfundidadeRenal(pessoa.getIdade(), pessoa.getPeso(), pessoa.getAltura());
+
+    fatorK = calculaFatorK(profundidadeRenal);
 
     ui->profundidadeRenalLabel->setText(QString::number(profundidadeRenal, 3, 3));
     ui->fatorKLabel->setText(QString::number(fatorK, 3, 3));

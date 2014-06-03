@@ -1,10 +1,8 @@
 Reminder:
 
-2012/06/24:
-  1. Improve GUI:
-  	a. Take the "about" out out implement it;
-  	b. Make the window no resizable;
-  2. Implement functions to handle incorrect input format;
-  3. maybe: refactoring in order to make classes out of rim, seringa and padrao from dmsa;
-  4. There are 4 Warning regarding a name "layoutWidget" already in use.
-  5. In the Action Editor there are two entry that seems to have no function at all.
+2014/05/02:
+  1. maybe: refactoring in order to make classes out of rim, seringa and padrao from dmsa;
+  2. Implement functions to handle incorrect input format;  
+  3. Improve GUI: Make the window no resizable. I set sizePolicy to fixed, but it didn't work.
+  4. There are 4 Warning regarding a name "layoutWidget" already in use. Parecem estar
+     relacionados ao 4 campos de resultados.

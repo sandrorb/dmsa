@@ -19,7 +19,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
@@ -31,8 +30,6 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *actionTeste;
-    QAction *actionSrB;
     QWidget *centralWidget;
     QPushButton *pushButtonCalcular;
     QLabel *label_26;
@@ -46,7 +43,7 @@ public:
     QLabel *profundidadeRenalLabel;
     QLabel *fatorKLabel;
     QWidget *layoutWidget;
-    QFormLayout *formLayout_3;
+    QFormLayout *formLayoutRimEsquerdo;
     QLabel *label_9;
     QLineEdit *rimEsquerdoTextBox;
     QLabel *label_10;
@@ -58,7 +55,7 @@ public:
     QLabel *label_18;
     QLineEdit *rimEsquerdoTempoTextBox;
     QWidget *layoutWidget1;
-    QFormLayout *formLayout_4;
+    QFormLayout *formLayoutRimDireito;
     QLabel *label_16;
     QLineEdit *rimDireitoTextBox;
     QLabel *label_15;
@@ -81,7 +78,7 @@ public:
     QLineEdit *alturaTextBox;
     QLabel *label_25;
     QWidget *layoutWidget3;
-    QFormLayout *formLayout;
+    QFormLayout *formLayoutPadrao;
     QLabel *label;
     QLineEdit *padraoTextBox;
     QLabel *label_2;
@@ -93,7 +90,7 @@ public:
     QLabel *label_17;
     QLineEdit *padraoTempoTextBox;
     QWidget *layoutWidget4;
-    QFormLayout *formLayout_2;
+    QFormLayout *formLayoutSeringas;
     QLabel *label_5;
     QLineEdit *padraoSeringaCheiaTextBox;
     QLabel *label_6;
@@ -106,17 +103,17 @@ public:
     QLabel *label_32;
     QStatusBar *statusBar;
     QMenuBar *menuBar;
-    QMenu *menuSobre;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(690, 537);
-        actionTeste = new QAction(MainWindow);
-        actionTeste->setObjectName(QStringLiteral("actionTeste"));
-        actionSrB = new QAction(MainWindow);
-        actionSrB->setObjectName(QStringLiteral("actionSrB"));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
+        MainWindow->setSizePolicy(sizePolicy);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         pushButtonCalcular = new QPushButton(centralWidget);
@@ -196,129 +193,129 @@ public:
         layoutWidget = new QWidget(centralWidget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
         layoutWidget->setGeometry(QRect(90, 170, 251, 152));
-        formLayout_3 = new QFormLayout(layoutWidget);
-        formLayout_3->setSpacing(6);
-        formLayout_3->setContentsMargins(11, 11, 11, 11);
-        formLayout_3->setObjectName(QStringLiteral("formLayout_3"));
-        formLayout_3->setContentsMargins(0, 0, 0, 0);
+        formLayoutRimEsquerdo = new QFormLayout(layoutWidget);
+        formLayoutRimEsquerdo->setSpacing(6);
+        formLayoutRimEsquerdo->setContentsMargins(11, 11, 11, 11);
+        formLayoutRimEsquerdo->setObjectName(QStringLiteral("formLayoutRimEsquerdo"));
+        formLayoutRimEsquerdo->setContentsMargins(0, 0, 0, 0);
         label_9 = new QLabel(layoutWidget);
         label_9->setObjectName(QStringLiteral("label_9"));
         label_9->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        formLayout_3->setWidget(0, QFormLayout::LabelRole, label_9);
+        formLayoutRimEsquerdo->setWidget(0, QFormLayout::LabelRole, label_9);
 
         rimEsquerdoTextBox = new QLineEdit(layoutWidget);
         rimEsquerdoTextBox->setObjectName(QStringLiteral("rimEsquerdoTextBox"));
 
-        formLayout_3->setWidget(0, QFormLayout::FieldRole, rimEsquerdoTextBox);
+        formLayoutRimEsquerdo->setWidget(0, QFormLayout::FieldRole, rimEsquerdoTextBox);
 
         label_10 = new QLabel(layoutWidget);
         label_10->setObjectName(QStringLiteral("label_10"));
         label_10->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        formLayout_3->setWidget(1, QFormLayout::LabelRole, label_10);
+        formLayoutRimEsquerdo->setWidget(1, QFormLayout::LabelRole, label_10);
 
         rimEsquerdoAreaTextBox = new QLineEdit(layoutWidget);
         rimEsquerdoAreaTextBox->setObjectName(QStringLiteral("rimEsquerdoAreaTextBox"));
 
-        formLayout_3->setWidget(1, QFormLayout::FieldRole, rimEsquerdoAreaTextBox);
+        formLayoutRimEsquerdo->setWidget(1, QFormLayout::FieldRole, rimEsquerdoAreaTextBox);
 
         label_11 = new QLabel(layoutWidget);
         label_11->setObjectName(QStringLiteral("label_11"));
         label_11->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        formLayout_3->setWidget(2, QFormLayout::LabelRole, label_11);
+        formLayoutRimEsquerdo->setWidget(2, QFormLayout::LabelRole, label_11);
 
         rimEsquerdoBGTextBox = new QLineEdit(layoutWidget);
         rimEsquerdoBGTextBox->setObjectName(QStringLiteral("rimEsquerdoBGTextBox"));
 
-        formLayout_3->setWidget(2, QFormLayout::FieldRole, rimEsquerdoBGTextBox);
+        formLayoutRimEsquerdo->setWidget(2, QFormLayout::FieldRole, rimEsquerdoBGTextBox);
 
         label_12 = new QLabel(layoutWidget);
         label_12->setObjectName(QStringLiteral("label_12"));
         label_12->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        formLayout_3->setWidget(3, QFormLayout::LabelRole, label_12);
+        formLayoutRimEsquerdo->setWidget(3, QFormLayout::LabelRole, label_12);
 
         rimEsquerdoBGAreaTextBox = new QLineEdit(layoutWidget);
         rimEsquerdoBGAreaTextBox->setObjectName(QStringLiteral("rimEsquerdoBGAreaTextBox"));
 
-        formLayout_3->setWidget(3, QFormLayout::FieldRole, rimEsquerdoBGAreaTextBox);
+        formLayoutRimEsquerdo->setWidget(3, QFormLayout::FieldRole, rimEsquerdoBGAreaTextBox);
 
         label_18 = new QLabel(layoutWidget);
         label_18->setObjectName(QStringLiteral("label_18"));
         label_18->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        formLayout_3->setWidget(4, QFormLayout::LabelRole, label_18);
+        formLayoutRimEsquerdo->setWidget(4, QFormLayout::LabelRole, label_18);
 
         rimEsquerdoTempoTextBox = new QLineEdit(layoutWidget);
         rimEsquerdoTempoTextBox->setObjectName(QStringLiteral("rimEsquerdoTempoTextBox"));
 
-        formLayout_3->setWidget(4, QFormLayout::FieldRole, rimEsquerdoTempoTextBox);
+        formLayoutRimEsquerdo->setWidget(4, QFormLayout::FieldRole, rimEsquerdoTempoTextBox);
 
         layoutWidget1 = new QWidget(centralWidget);
         layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
         layoutWidget1->setGeometry(QRect(370, 170, 231, 152));
-        formLayout_4 = new QFormLayout(layoutWidget1);
-        formLayout_4->setSpacing(6);
-        formLayout_4->setContentsMargins(11, 11, 11, 11);
-        formLayout_4->setObjectName(QStringLiteral("formLayout_4"));
-        formLayout_4->setFieldGrowthPolicy(QFormLayout::FieldsStayAtSizeHint);
-        formLayout_4->setContentsMargins(0, 0, 0, 0);
+        formLayoutRimDireito = new QFormLayout(layoutWidget1);
+        formLayoutRimDireito->setSpacing(6);
+        formLayoutRimDireito->setContentsMargins(11, 11, 11, 11);
+        formLayoutRimDireito->setObjectName(QStringLiteral("formLayoutRimDireito"));
+        formLayoutRimDireito->setFieldGrowthPolicy(QFormLayout::FieldsStayAtSizeHint);
+        formLayoutRimDireito->setContentsMargins(0, 0, 0, 0);
         label_16 = new QLabel(layoutWidget1);
         label_16->setObjectName(QStringLiteral("label_16"));
         label_16->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        formLayout_4->setWidget(0, QFormLayout::LabelRole, label_16);
+        formLayoutRimDireito->setWidget(0, QFormLayout::LabelRole, label_16);
 
         rimDireitoTextBox = new QLineEdit(layoutWidget1);
         rimDireitoTextBox->setObjectName(QStringLiteral("rimDireitoTextBox"));
 
-        formLayout_4->setWidget(0, QFormLayout::FieldRole, rimDireitoTextBox);
+        formLayoutRimDireito->setWidget(0, QFormLayout::FieldRole, rimDireitoTextBox);
 
         label_15 = new QLabel(layoutWidget1);
         label_15->setObjectName(QStringLiteral("label_15"));
         label_15->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        formLayout_4->setWidget(1, QFormLayout::LabelRole, label_15);
+        formLayoutRimDireito->setWidget(1, QFormLayout::LabelRole, label_15);
 
         rimDireitoAreaTextBox = new QLineEdit(layoutWidget1);
         rimDireitoAreaTextBox->setObjectName(QStringLiteral("rimDireitoAreaTextBox"));
 
-        formLayout_4->setWidget(1, QFormLayout::FieldRole, rimDireitoAreaTextBox);
+        formLayoutRimDireito->setWidget(1, QFormLayout::FieldRole, rimDireitoAreaTextBox);
 
         rimDireitoBGTextBox = new QLineEdit(layoutWidget1);
         rimDireitoBGTextBox->setObjectName(QStringLiteral("rimDireitoBGTextBox"));
 
-        formLayout_4->setWidget(2, QFormLayout::FieldRole, rimDireitoBGTextBox);
+        formLayoutRimDireito->setWidget(2, QFormLayout::FieldRole, rimDireitoBGTextBox);
 
         label_14 = new QLabel(layoutWidget1);
         label_14->setObjectName(QStringLiteral("label_14"));
         label_14->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        formLayout_4->setWidget(3, QFormLayout::LabelRole, label_14);
+        formLayoutRimDireito->setWidget(3, QFormLayout::LabelRole, label_14);
 
         rimDireitoBGAreaTextBox = new QLineEdit(layoutWidget1);
         rimDireitoBGAreaTextBox->setObjectName(QStringLiteral("rimDireitoBGAreaTextBox"));
 
-        formLayout_4->setWidget(3, QFormLayout::FieldRole, rimDireitoBGAreaTextBox);
+        formLayoutRimDireito->setWidget(3, QFormLayout::FieldRole, rimDireitoBGAreaTextBox);
 
         label_19 = new QLabel(layoutWidget1);
         label_19->setObjectName(QStringLiteral("label_19"));
         label_19->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        formLayout_4->setWidget(4, QFormLayout::LabelRole, label_19);
+        formLayoutRimDireito->setWidget(4, QFormLayout::LabelRole, label_19);
 
         rimDireitoTempoTextBox = new QLineEdit(layoutWidget1);
         rimDireitoTempoTextBox->setObjectName(QStringLiteral("rimDireitoTempoTextBox"));
 
-        formLayout_4->setWidget(4, QFormLayout::FieldRole, rimDireitoTempoTextBox);
+        formLayoutRimDireito->setWidget(4, QFormLayout::FieldRole, rimDireitoTempoTextBox);
 
         label_13 = new QLabel(layoutWidget1);
         label_13->setObjectName(QStringLiteral("label_13"));
         label_13->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        formLayout_4->setWidget(2, QFormLayout::LabelRole, label_13);
+        formLayoutRimDireito->setWidget(2, QFormLayout::LabelRole, label_13);
 
         layoutWidget2 = new QWidget(centralWidget);
         layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
@@ -379,112 +376,112 @@ public:
         layoutWidget3 = new QWidget(centralWidget);
         layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
         layoutWidget3->setGeometry(QRect(10, 10, 211, 151));
-        formLayout = new QFormLayout(layoutWidget3);
-        formLayout->setSpacing(6);
-        formLayout->setContentsMargins(11, 11, 11, 11);
-        formLayout->setObjectName(QStringLiteral("formLayout"));
-        formLayout->setContentsMargins(0, 0, 0, 0);
+        formLayoutPadrao = new QFormLayout(layoutWidget3);
+        formLayoutPadrao->setSpacing(6);
+        formLayoutPadrao->setContentsMargins(11, 11, 11, 11);
+        formLayoutPadrao->setObjectName(QStringLiteral("formLayoutPadrao"));
+        formLayoutPadrao->setContentsMargins(0, 0, 0, 0);
         label = new QLabel(layoutWidget3);
         label->setObjectName(QStringLiteral("label"));
 
-        formLayout->setWidget(0, QFormLayout::LabelRole, label);
+        formLayoutPadrao->setWidget(0, QFormLayout::LabelRole, label);
 
         padraoTextBox = new QLineEdit(layoutWidget3);
         padraoTextBox->setObjectName(QStringLiteral("padraoTextBox"));
         padraoTextBox->setLayoutDirection(Qt::LeftToRight);
         padraoTextBox->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, padraoTextBox);
+        formLayoutPadrao->setWidget(0, QFormLayout::FieldRole, padraoTextBox);
 
         label_2 = new QLabel(layoutWidget3);
         label_2->setObjectName(QStringLiteral("label_2"));
 
-        formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
+        formLayoutPadrao->setWidget(1, QFormLayout::LabelRole, label_2);
 
         padraoAreaTextBox = new QLineEdit(layoutWidget3);
         padraoAreaTextBox->setObjectName(QStringLiteral("padraoAreaTextBox"));
         padraoAreaTextBox->setLayoutDirection(Qt::LeftToRight);
         padraoAreaTextBox->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, padraoAreaTextBox);
+        formLayoutPadrao->setWidget(1, QFormLayout::FieldRole, padraoAreaTextBox);
 
         label_3 = new QLabel(layoutWidget3);
         label_3->setObjectName(QStringLiteral("label_3"));
 
-        formLayout->setWidget(2, QFormLayout::LabelRole, label_3);
+        formLayoutPadrao->setWidget(2, QFormLayout::LabelRole, label_3);
 
         padraoBGTextBox = new QLineEdit(layoutWidget3);
         padraoBGTextBox->setObjectName(QStringLiteral("padraoBGTextBox"));
 
-        formLayout->setWidget(2, QFormLayout::FieldRole, padraoBGTextBox);
+        formLayoutPadrao->setWidget(2, QFormLayout::FieldRole, padraoBGTextBox);
 
         label_4 = new QLabel(layoutWidget3);
         label_4->setObjectName(QStringLiteral("label_4"));
 
-        formLayout->setWidget(3, QFormLayout::LabelRole, label_4);
+        formLayoutPadrao->setWidget(3, QFormLayout::LabelRole, label_4);
 
         padraoBGAreaTextBox = new QLineEdit(layoutWidget3);
         padraoBGAreaTextBox->setObjectName(QStringLiteral("padraoBGAreaTextBox"));
 
-        formLayout->setWidget(3, QFormLayout::FieldRole, padraoBGAreaTextBox);
+        formLayoutPadrao->setWidget(3, QFormLayout::FieldRole, padraoBGAreaTextBox);
 
         label_17 = new QLabel(layoutWidget3);
         label_17->setObjectName(QStringLiteral("label_17"));
 
-        formLayout->setWidget(4, QFormLayout::LabelRole, label_17);
+        formLayoutPadrao->setWidget(4, QFormLayout::LabelRole, label_17);
 
         padraoTempoTextBox = new QLineEdit(layoutWidget3);
         padraoTempoTextBox->setObjectName(QStringLiteral("padraoTempoTextBox"));
 
-        formLayout->setWidget(4, QFormLayout::FieldRole, padraoTempoTextBox);
+        formLayoutPadrao->setWidget(4, QFormLayout::FieldRole, padraoTempoTextBox);
 
         layoutWidget4 = new QWidget(centralWidget);
         layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
         layoutWidget4->setGeometry(QRect(230, 10, 241, 121));
-        formLayout_2 = new QFormLayout(layoutWidget4);
-        formLayout_2->setSpacing(6);
-        formLayout_2->setContentsMargins(11, 11, 11, 11);
-        formLayout_2->setObjectName(QStringLiteral("formLayout_2"));
-        formLayout_2->setContentsMargins(0, 0, 0, 0);
+        formLayoutSeringas = new QFormLayout(layoutWidget4);
+        formLayoutSeringas->setSpacing(6);
+        formLayoutSeringas->setContentsMargins(11, 11, 11, 11);
+        formLayoutSeringas->setObjectName(QStringLiteral("formLayoutSeringas"));
+        formLayoutSeringas->setContentsMargins(0, 0, 0, 0);
         label_5 = new QLabel(layoutWidget4);
         label_5->setObjectName(QStringLiteral("label_5"));
 
-        formLayout_2->setWidget(0, QFormLayout::LabelRole, label_5);
+        formLayoutSeringas->setWidget(0, QFormLayout::LabelRole, label_5);
 
         padraoSeringaCheiaTextBox = new QLineEdit(layoutWidget4);
         padraoSeringaCheiaTextBox->setObjectName(QStringLiteral("padraoSeringaCheiaTextBox"));
 
-        formLayout_2->setWidget(0, QFormLayout::FieldRole, padraoSeringaCheiaTextBox);
+        formLayoutSeringas->setWidget(0, QFormLayout::FieldRole, padraoSeringaCheiaTextBox);
 
         label_6 = new QLabel(layoutWidget4);
         label_6->setObjectName(QStringLiteral("label_6"));
 
-        formLayout_2->setWidget(1, QFormLayout::LabelRole, label_6);
+        formLayoutSeringas->setWidget(1, QFormLayout::LabelRole, label_6);
 
         padraoSeringaVaziaTextBox = new QLineEdit(layoutWidget4);
         padraoSeringaVaziaTextBox->setObjectName(QStringLiteral("padraoSeringaVaziaTextBox"));
 
-        formLayout_2->setWidget(1, QFormLayout::FieldRole, padraoSeringaVaziaTextBox);
+        formLayoutSeringas->setWidget(1, QFormLayout::FieldRole, padraoSeringaVaziaTextBox);
 
         label_7 = new QLabel(layoutWidget4);
         label_7->setObjectName(QStringLiteral("label_7"));
 
-        formLayout_2->setWidget(2, QFormLayout::LabelRole, label_7);
+        formLayoutSeringas->setWidget(2, QFormLayout::LabelRole, label_7);
 
         pacienteSeringaCheiaTextBox = new QLineEdit(layoutWidget4);
         pacienteSeringaCheiaTextBox->setObjectName(QStringLiteral("pacienteSeringaCheiaTextBox"));
 
-        formLayout_2->setWidget(2, QFormLayout::FieldRole, pacienteSeringaCheiaTextBox);
+        formLayoutSeringas->setWidget(2, QFormLayout::FieldRole, pacienteSeringaCheiaTextBox);
 
         label_8 = new QLabel(layoutWidget4);
         label_8->setObjectName(QStringLiteral("label_8"));
 
-        formLayout_2->setWidget(3, QFormLayout::LabelRole, label_8);
+        formLayoutSeringas->setWidget(3, QFormLayout::LabelRole, label_8);
 
         pacienteSeringaVaziaTextBox = new QLineEdit(layoutWidget4);
         pacienteSeringaVaziaTextBox->setObjectName(QStringLiteral("pacienteSeringaVaziaTextBox"));
 
-        formLayout_2->setWidget(3, QFormLayout::FieldRole, pacienteSeringaVaziaTextBox);
+        formLayoutSeringas->setWidget(3, QFormLayout::FieldRole, pacienteSeringaVaziaTextBox);
 
         msgText = new QPlainTextEdit(centralWidget);
         msgText->setObjectName(QStringLiteral("msgText"));
@@ -502,11 +499,9 @@ public:
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 690, 22));
-        menuSobre = new QMenu(menuBar);
-        menuSobre->setObjectName(QStringLiteral("menuSobre"));
+        sizePolicy.setHeightForWidth(menuBar->sizePolicy().hasHeightForWidth());
+        menuBar->setSizePolicy(sizePolicy);
         MainWindow->setMenuBar(menuBar);
-
-        menuBar->addAction(menuSobre->menuAction());
 
         retranslateUi(MainWindow);
 
@@ -516,8 +511,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        actionTeste->setText(QApplication::translate("MainWindow", "Teste", 0));
-        actionSrB->setText(QApplication::translate("MainWindow", "SrB", 0));
         pushButtonCalcular->setText(QApplication::translate("MainWindow", "Calcular", 0));
         label_26->setText(QApplication::translate("MainWindow", "Profundidade Renal:", 0));
         label_27->setText(QApplication::translate("MainWindow", "Fator K:", 0));
@@ -555,7 +548,6 @@ public:
         label_7->setText(QApplication::translate("MainWindow", "Seringa do Paciente Cheia:", 0));
         label_8->setText(QApplication::translate("MainWindow", "Seringa do Paciente Vazia:", 0));
         label_32->setText(QApplication::translate("MainWindow", "cm", 0));
-        menuSobre->setTitle(QApplication::translate("MainWindow", "Sobre", 0));
     } // retranslateUi
 
 };

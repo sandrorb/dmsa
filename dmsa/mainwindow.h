@@ -17,17 +17,20 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    Pessoa pessoa;
-    float a, b, c, profundidadeRenal, fatorK;
+    float profundidadeRenal, fatorK;
 
     void validadeFields();
+    float calculaProfundidadeRenal(int idade, int peso, int altura);
+    float calculaFatorK(float profundidadeRenal);
 
+    void calculaFatorK();
 public slots:
     void calcular();
 //    void calcularCaptacao();
 
 private:
     Ui::MainWindow *ui;
+    Pessoa pessoa;
     Dmsa dmsa;
 
 };
