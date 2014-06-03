@@ -6,3 +6,17 @@ Reminder:
   3. Improve GUI: Make the window no resizable. I set sizePolicy to fixed, but it didn't work.
   4. There are 4 Warning regarding a name "layoutWidget" already in use. Parecem estar
      relacionados ao 4 campos de resultados.
+
+
+
+Notes for cross compilation:     
+
+~/mxe/usr/i686-pc-mingw32.static/qt/bin/qmake TesteSrB.pro
+
+Mudar em Makefile.Release (ou Makefile.Debug) coisas como:
+
+CC = gcc para CC = /Users/sandro/mxe/usr/bin/i686-pc-mingw32.static-gcc
+e CXX = g++ para CXX = /Users/sandro/mxe/usr/bin/i686-pc-mingw32.static-g++
+e LINK = g++ para LINK =  /Users/sandro/mxe/usr/bin/i686-pc-mingw32.static-g++
+
+make -f Makefile.Release     
