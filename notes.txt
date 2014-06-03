@@ -3,6 +3,7 @@ Reminder:
 Ongoing changes:
 	1. The calculaProfundidadeRenal() function in the MainWindow has been modev to Dmsa.
 	2. The same has been done to calculaFatorK().
+	3. Check conversion from String to Int.
 
 2014/05/02:
 	1. maybe: refactoring in order to make classes out of rim, seringa and padrao from dmsa;
