@@ -23,4 +23,5 @@ CC = gcc para CC = /Users/sandro/mxe/usr/bin/i686-pc-mingw32.static-gcc
 e CXX = g++ para CXX = /Users/sandro/mxe/usr/bin/i686-pc-mingw32.static-g++
 e LINK = g++ para LINK =  /Users/sandro/mxe/usr/bin/i686-pc-mingw32.static-g++
 
+export PATH=$PATH:/Users/sandro/mxe/usr/bin
 make -f Makefile.Release     
