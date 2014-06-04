@@ -1,17 +1,11 @@
 Reminder:
 
-Ongoing changes:
-	1. The calculaProfundidadeRenal() function in the MainWindow has been modev to Dmsa.
-	2. The same has been done to calculaFatorK().
-	3. Check conversion from String to Int.
-
-2014/05/02:
+2014/05/03:
 	1. maybe: refactoring in order to make classes out of rim, seringa and padrao from dmsa;
 	2. Implement functions to handle incorrect input format;  
 	3. Improve GUI: Make the window no resizable. I set sizePolicy to fixed, but it didn't work.
-	4. There are 4 Warning regarding a name "layoutWidget" already in use. Parecem estar
-       relacionados ao 4 campos de resultados.
-
+	4. There are 4 Warning regarding a name "layoutWidget" already in use. They seem
+	   to be related to 4 results fields.
 
 
 Notes for cross compilation:     

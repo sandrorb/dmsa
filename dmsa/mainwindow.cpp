@@ -6,11 +6,14 @@
 #include "ui_mainwindow.h"
 #include "dmsa.h"
 #include "pessoa.h"
+#include "validate.h"
 
 #include <string>
 #include <sstream>
+#include <vector>
 
-#include <stdexcept>
+// It necessary for exceptions
+//#include <stdexcept>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -50,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pesoTextBox->setText(QString::number(pessoa.getPeso()));
     ui->alturaTextBox->setText(QString::number(pessoa.getAltura()));
 
-    statusBar()->showMessage("DMSA v0.3 (c) 2014 - by Sandro Boschetti");
+    statusBar()->showMessage("DMSA v0.4 (c) 2014 - by Sandro Boschetti");
     statusBar()->setStyleSheet("background-color: lightgray");
 
     /* Vincula o botao calcular com a respectiva funcao */
@@ -62,33 +65,23 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::validadeFields(){
-    // Here is to put all the validation code for the fields.
-    //ui->msgText->appendPlainText("Mensagem de erro! (Teste)");
-}
-
-int MainWindow::convertTextToInt(QString intString){
-    bool ok = false;
-    int result = intString.toInt(&ok,10);
-    if (!ok) {
-        //std::cout << "Conversão de "<< intString.toStdString() << " em número falou!" << std::endl;
-        std::stringstream ss;
-        ss << "Conversão de \""<< intString.toStdString() << "\" em número falou!"
-           << " No campo idade só é permitido números!" << std::endl;
-        std::string myMsg = ss.str();
-        ui->msgText->appendPlainText(QString::fromStdString(myMsg));
-    } else{
-        ui->msgText->setPlainText("Ok!");
-    }
-    return result;
-}
-
 void MainWindow::calcular() {
 
-    //validadeFields();
+/* The following four line is just for test */
+//    std::vector<QLineEdit *> fields;
+//    fields.push_back(ui->idadeTextBox);
+//    validadeFields.setFields(fields); //(this->fields[0])->setText("Dentro de teste()");
 
-    pessoa.setIdade( convertTextToInt( ui->idadeTextBox->text() ) );
+    Validate validadeFields(ui);
+    if (!validadeFields.validate()) {
+        ui->msgText->setPlainText("Há dado(s) não válido(s)! Digite somente números sem pontos e sem vírgulas.");
+        ui->profundidadeRenalLabel->setText("");
+        ui->fatorKLabel->setText("");
+        ui->rimDireitoCaptacaoLabel->setText("");
+        ui->rimEsquerdoCaptacaoLabel->setText("");
+    } else {
 
+    pessoa.setIdade( ui->idadeTextBox->text().toInt() );
     pessoa.setPeso( ui->pesoTextBox->text().toInt() );
     pessoa.setAltura( ui->alturaTextBox->text().toInt() );
 
@@ -142,6 +135,10 @@ void MainWindow::calcular() {
 
     ui->rimDireitoCaptacaoLabel->setText(QString::number(rimDireitoCaptacao, 3, 2));
     ui->rimEsquerdoCaptacaoLabel->setText(QString::number(rimEsquerdoCaptacao, 3, 2));
+
+    ui->msgText->setPlainText("Ok!");
+
+    } // If
 
 }
 

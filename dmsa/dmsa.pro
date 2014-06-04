@@ -18,7 +18,9 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
-HEADERS += dmsa.h mainwindow.h pessoa.h
+HEADERS += dmsa.h mainwindow.h pessoa.h \
+    validate.h
 FORMS += mainwindow.ui
-SOURCES += dmsa.cpp main.cpp mainwindow.cpp pessoa.cpp
+SOURCES += dmsa.cpp main.cpp mainwindow.cpp pessoa.cpp \
+    validate.cpp
 

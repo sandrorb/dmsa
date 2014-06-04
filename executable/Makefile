@@ -48,11 +48,13 @@ OBJECTS_DIR   = ./
 SOURCES       = ../dmsa/dmsa.cpp \
 		../dmsa/main.cpp \
 		../dmsa/mainwindow.cpp \
-		../dmsa/pessoa.cpp moc_mainwindow.cpp
+		../dmsa/pessoa.cpp \
+		../dmsa/validate.cpp moc_mainwindow.cpp
 OBJECTS       = dmsa.o \
 		main.o \
 		mainwindow.o \
 		pessoa.o \
+		validate.o \
 		moc_mainwindow.o
 DIST          = /Users/sandro/Qt5.2.0/5.2.0/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/sandro/Qt5.2.0/5.2.0/clang_64/mkspecs/qdevice.pri \
@@ -448,7 +450,7 @@ dmsa.app/Contents/Info.plist:
 	@sed -e "s,@SHORT_VERSION@,1.0,g" -e "s,@TYPEINFO@,????,g" -e "s,@ICON@,,g" -e "s,@EXECUTABLE@,dmsa,g" -e "s,@TYPEINFO@,????,g" /Users/sandro/Qt5.2.0/5.2.0/clang_64/mkspecs/macx-clang/Info.plist.app >dmsa.app/Contents/Info.plist
 dist: 
 	@test -d .tmp/dmsa1.0.0 || mkdir -p .tmp/dmsa1.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/dmsa1.0.0/ && $(COPY_FILE) --parents ../dmsa/dmsa.h ../dmsa/mainwindow.h ../dmsa/pessoa.h .tmp/dmsa1.0.0/ && $(COPY_FILE) --parents ../dmsa/dmsa.cpp ../dmsa/main.cpp ../dmsa/mainwindow.cpp ../dmsa/pessoa.cpp .tmp/dmsa1.0.0/ && $(COPY_FILE) --parents ../dmsa/mainwindow.ui .tmp/dmsa1.0.0/ && (cd `dirname .tmp/dmsa1.0.0` && $(TAR) dmsa1.0.0.tar dmsa1.0.0 && $(COMPRESS) dmsa1.0.0.tar) && $(MOVE) `dirname .tmp/dmsa1.0.0`/dmsa1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/dmsa1.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/dmsa1.0.0/ && $(COPY_FILE) --parents ../dmsa/dmsa.h ../dmsa/mainwindow.h ../dmsa/pessoa.h ../dmsa/validate.h .tmp/dmsa1.0.0/ && $(COPY_FILE) --parents ../dmsa/dmsa.cpp ../dmsa/main.cpp ../dmsa/mainwindow.cpp ../dmsa/pessoa.cpp ../dmsa/validate.cpp .tmp/dmsa1.0.0/ && $(COPY_FILE) --parents ../dmsa/mainwindow.ui .tmp/dmsa1.0.0/ && (cd `dirname .tmp/dmsa1.0.0` && $(TAR) dmsa1.0.0.tar dmsa1.0.0 && $(COMPRESS) dmsa1.0.0.tar) && $(MOVE) `dirname .tmp/dmsa1.0.0`/dmsa1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/dmsa1.0.0
 
 
 clean:compiler_clean 
@@ -523,11 +525,23 @@ mainwindow.o: ../dmsa/mainwindow.cpp /Users/sandro/Qt5.2.0/5.2.0/clang_64/lib/Qt
 		/Users/sandro/Qt5.2.0/5.2.0/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qmainwindow.h \
 		../dmsa/dmsa.h \
 		../dmsa/pessoa.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../dmsa/validate.h \
+		/Users/sandro/Qt5.2.0/5.2.0/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qlineedit.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../dmsa/mainwindow.cpp
 
 pessoa.o: ../dmsa/pessoa.cpp ../dmsa/pessoa.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pessoa.o ../dmsa/pessoa.cpp
+
+validate.o: ../dmsa/validate.cpp ../dmsa/validate.h \
+		../dmsa/mainwindow.h \
+		/Users/sandro/Qt5.2.0/5.2.0/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QMainWindow \
+		/Users/sandro/Qt5.2.0/5.2.0/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qmainwindow.h \
+		../dmsa/dmsa.h \
+		../dmsa/pessoa.h \
+		/Users/sandro/Qt5.2.0/5.2.0/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qlineedit.h \
+		ui_mainwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o validate.o ../dmsa/validate.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

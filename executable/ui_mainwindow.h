@@ -108,7 +108,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(690, 537);
+        MainWindow->resize(690, 545);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -181,13 +181,13 @@ public:
         profundidadeRenalLabel = new QLabel(centralWidget);
         profundidadeRenalLabel->setObjectName(QStringLiteral("profundidadeRenalLabel"));
         profundidadeRenalLabel->setGeometry(QRect(250, 370, 61, 20));
-        profundidadeRenalLabel->setStyleSheet(QStringLiteral("background-color: lightgreen"));
+        profundidadeRenalLabel->setStyleSheet(QStringLiteral("background-color: lightgray"));
         profundidadeRenalLabel->setFrameShape(QFrame::Box);
         profundidadeRenalLabel->setScaledContents(false);
         fatorKLabel = new QLabel(centralWidget);
         fatorKLabel->setObjectName(QStringLiteral("fatorKLabel"));
         fatorKLabel->setGeometry(QRect(250, 400, 61, 20));
-        fatorKLabel->setStyleSheet(QStringLiteral("background-color: lightgreen"));
+        fatorKLabel->setStyleSheet(QStringLiteral("background-color: lightgray"));
         fatorKLabel->setFrameShape(QFrame::Box);
         fatorKLabel->setScaledContents(false);
         layoutWidget = new QWidget(centralWidget);
@@ -485,7 +485,7 @@ public:
 
         msgText = new QPlainTextEdit(centralWidget);
         msgText->setObjectName(QStringLiteral("msgText"));
-        msgText->setGeometry(QRect(10, 430, 671, 61));
+        msgText->setGeometry(QRect(10, 440, 671, 61));
         QFont font;
         font.setFamily(QStringLiteral("Lucida Grande"));
         msgText->setFont(font);

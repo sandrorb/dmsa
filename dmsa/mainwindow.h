@@ -19,15 +19,8 @@ public:
     ~MainWindow();
     float profundidadeRenal, fatorK;
 
-    int convertTextToInt(QString intString);
-
-    void  validadeFields();
-
-    //void calculaFatorK();
-
 public slots:
     void calcular();
-//    void calcularCaptacao();
 
 private:
     Ui::MainWindow *ui;
