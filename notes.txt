@@ -1,11 +1,16 @@
 Reminder:
 
-2014/05/03:
-	1. maybe: refactoring in order to make classes out of rim, seringa and padrao from dmsa;
-	2. Implement functions to handle incorrect input format;  
+2014/05/04:
+	1. Maybe: refactoring in order to make classes out of rim, seringa and padrao from dmsa;
+	2. Maybe: improve functions to handle incorrect input format;  
 	3. Improve GUI: Make the window no resizable. I set sizePolicy to fixed, but it didn't work.
 	4. There are 4 Warning regarding a name "layoutWidget" already in use. They seem
 	   to be related to 4 results fields.
+	5. Put the calculation out of MainWindow.
+	6. Time is in seconds? Hight is always in cm?
+	7. Make intrinsic calculation tests.
+		a. Put factorK = 1 to see the crude results.
+	8. To check: all text have right alignment, but I think it's not the case in the win version.
 
 
 Notes for cross compilation:     

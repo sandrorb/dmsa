@@ -9,6 +9,7 @@
 #ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
 
+#include <QtCore/QLocale>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -490,6 +491,7 @@ public:
         font.setFamily(QStringLiteral("Lucida Grande"));
         msgText->setFont(font);
         msgText->setStyleSheet(QStringLiteral("background-color: lightblue; color: red;"));
+        msgText->setLocale(QLocale(QLocale::Portuguese, QLocale::Brazil));
         msgText->setFrameShape(QFrame::StyledPanel);
         msgText->setReadOnly(true);
         label_32 = new QLabel(centralWidget);

@@ -718,6 +718,9 @@
     <property name="styleSheet">
      <string notr="true">background-color: lightblue; color: red;</string>
     </property>
+    <property name="locale">
+     <locale language="Portuguese" country="Brazil"/>
+    </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
     </property>

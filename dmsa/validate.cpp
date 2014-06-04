@@ -48,7 +48,7 @@ bool Validate::validate(){
     for (size_t i = 0; i < fields.size(); i++) {
         fieldStr = fields[i]->text();
 //        int result = fieldStr.toInt(&ok,10);
-        fieldStr.toInt(&ok,10);
+        fieldStr.toInt(&ok,10); // ok = true if conversion succeds.
         if (!ok) {
             std::stringstream ss;
             ss << "Conversão de \""<< fieldStr.toStdString() << "\" em número falou!"
