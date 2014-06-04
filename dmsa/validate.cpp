@@ -1,8 +1,5 @@
 #include "validate.h"
 #include "mainwindow.h"
-#include <iostream>
-#include <string>
-#include <sstream>
 
 // This following include, ui_mainwindow.h, is mandatory
 // to pass the ui reference to this class.
@@ -10,7 +7,6 @@
 
 Validate::Validate(Ui::MainWindow * ui) {
     this->ui = ui;
-    this->isFieldsOk = false;
 }
 
 bool Validate::validate(){
@@ -47,16 +43,9 @@ bool Validate::validate(){
 
     for (size_t i = 0; i < fields.size(); i++) {
         fieldStr = fields[i]->text();
-//        int result = fieldStr.toInt(&ok,10);
-        fieldStr.toInt(&ok,10); // ok = true if conversion succeds.
-        if (!ok) {
-            std::stringstream ss;
-            ss << "Conversão de \""<< fieldStr.toStdString() << "\" em número falou!"
-               << " No campo idade só é permitido números!" << std::endl;
-            std::string myMsg = ss.str();
-            ui->msgText->appendPlainText(QString::fromStdString(myMsg));
+        fieldStr.toInt(&ok,10); // ok = true if conversion succeeds.
+        if (!ok)
             break;
-        }
     }
     return ok;
 }

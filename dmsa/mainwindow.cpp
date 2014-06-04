@@ -1,16 +1,9 @@
-#include <iostream>
-
 #include <QDesktopWidget>
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dmsa.h"
 #include "pessoa.h"
 #include "validate.h"
-
-#include <string>
-#include <sstream>
-#include <vector>
 
 // It necessary for exceptions
 //#include <stdexcept>
@@ -53,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pesoTextBox->setText(QString::number(pessoa.getPeso()));
     ui->alturaTextBox->setText(QString::number(pessoa.getAltura()));
 
-    statusBar()->showMessage("DMSA v0.4.1 (c) 2014 - by Sandro Boschetti");
+    statusBar()->showMessage("DMSA v0.4.2 (c) 2014 - by Sandro Boschetti");
     statusBar()->setStyleSheet("background-color: lightgray");
 
     /* Vincula o botao calcular com a respectiva funcao */
