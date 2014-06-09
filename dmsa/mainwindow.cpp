@@ -46,10 +46,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pesoTextBox->setText(QString::number(pessoa.getPeso()));
     ui->alturaTextBox->setText(QString::number(pessoa.getAltura()));
 
-    statusBar()->showMessage("DMSA v0.4.2 (c) 2014 - by Sandro Boschetti");
+    statusBar()->showMessage("DMSA v0.4.3 (c) 2014 - by Sandro Boschetti");
     statusBar()->setStyleSheet("background-color: lightgray");
 
-    /* Vincula o botao calcular com a respectiva funcao */
     QObject::connect(ui->pushButtonCalcular, SIGNAL(clicked()), this, SLOT(calcular()) );
 }
 
@@ -75,63 +74,17 @@ void MainWindow::calcular() {
         ui->rimEsquerdoCaptacaoLabel->setText("");
     } else {
 
+/* Pessoa doesn't need to be in the ui. It shall live in dmsa only (???) */
     pessoa.setIdade( ui->idadeTextBox->text().toInt() );
     pessoa.setPeso( ui->pesoTextBox->text().toInt() );
     pessoa.setAltura( ui->alturaTextBox->text().toInt() );
-
     dmsa.setPessoa(pessoa);
 
-    /* No need for this function get from pessoa since pessoa is already in dmsa (???) */
-    profundidadeRenal = dmsa.calculaProfundidadeRenal(pessoa.getIdade(), pessoa.getPeso(), pessoa.getAltura());
-    fatorK = dmsa.calculaFatorK(profundidadeRenal);
-
-    ui->profundidadeRenalLabel->setText(QString::number(profundidadeRenal, 3, 3));
-    ui->fatorKLabel->setText(QString::number(fatorK, 3, 3));
-
-    float padraoSeringaCheia = ui->padraoSeringaCheiaTextBox->text().toInt();
-    float padraoSeringaVazia = ui->padraoSeringaVaziaTextBox->text().toInt();
-    float pacienteSeringaCheia = ui->pacienteSeringaCheiaTextBox->text().toInt();
-    float pacienteSeringaVazia = ui->pacienteSeringaVaziaTextBox->text().toInt();
-
-    float fatorCorrecao = ( (float)(padraoSeringaCheia - padraoSeringaVazia) ) /
-                          ( (float)(pacienteSeringaCheia - pacienteSeringaVazia) );
-
-    int rimDireito = ui->rimDireitoTextBox->text().toInt();
-    int rimEsquerdo = ui->rimEsquerdoTextBox->text().toInt();
-    float rimDireitoCorrigido = rimDireito * (fatorCorrecao / fatorK);
-    float rimEsquerdoCorrigido = rimEsquerdo * (fatorCorrecao / fatorK);
-
-    int padrao       = ui->padraoTextBox->text().toInt();
-    int padraoArea   = ui->padraoAreaTextBox->text().toInt();
-    int padraoBG     = ui->padraoBGTextBox->text().toInt();
-    int padraoBGArea = ui->padraoBGAreaTextBox->text().toInt();
-
-    float padraoCorrigido = padraoArea * ((padrao / padraoArea) - (padraoBG / padraoBGArea));
-
-    int rimDireitoArea = ui->rimDireitoAreaTextBox->text().toInt();
-    int rimDireitoBG = ui->rimDireitoBGTextBox->text().toInt();
-    int rimDireitoBGArea = ui->rimDireitoBGAreaTextBox->text().toInt();
-
-    int rimEsquerdoArea = ui->rimEsquerdoAreaTextBox->text().toInt();
-    int rimEsquerdoBG = ui->rimEsquerdoBGTextBox->text().toInt();
-    int rimEsquerdoBGArea = ui->rimEsquerdoBGAreaTextBox->text().toInt();
-
-
-    rimDireitoCorrigido  = rimDireitoArea * ((rimDireitoCorrigido / rimDireitoArea) - (rimDireitoBG / rimDireitoBGArea));
-    rimEsquerdoCorrigido = rimEsquerdoArea * ((rimEsquerdoCorrigido / rimEsquerdoArea) - (rimEsquerdoBG / rimEsquerdoBGArea));
-
-    int padraoTempo = ui->padraoTempoTextBox->text().toInt();
-    int rimDireitoTempo = ui->rimDireitoTempoTextBox->text().toInt();
-    int rimEsquerdoTempo = ui->rimEsquerdoTempoTextBox->text().toInt();
-
-    float rimDireitoCaptacao  = 100 * ( ((float)padraoTempo) / ((float)rimDireitoTempo) ) * (rimDireitoCorrigido / padraoCorrigido);
-    float rimEsquerdoCaptacao = 100 * ( ((float)padraoTempo) / ((float)rimEsquerdoTempo) ) * (rimEsquerdoCorrigido / padraoCorrigido);
-
-    ui->rimDireitoCaptacaoLabel->setText(QString::number(rimDireitoCaptacao, 3, 2));
-    ui->rimEsquerdoCaptacaoLabel->setText(QString::number(rimEsquerdoCaptacao, 3, 2));
-
-    ui->msgText->setPlainText("Ok!");
-
+/* Dmsa shouldn't know about ui. Maybe the best approach is the ui set and get all
+   information from/to dmsa. Dmsa shouldn't write/read to/from ui. Up to now, I choose
+   to do so beacause Dmsa has to many fields. A similar reasoning should be made about
+   Validade. */
+    dmsa.calculaCaptacao(ui);
     } // If
 
 }

@@ -2,9 +2,9 @@
 #define DMSA_H
 
 #include "pessoa.h"
+#include "ui_mainwindow.h"
 
-class Dmsa
-{
+class Dmsa {
 public:
     Dmsa();
     ~Dmsa();
@@ -54,11 +54,21 @@ public:
     void setRimEsquerdoTempo(int rimEsquerdoTempo);
     int  getRimEsquerdoTempo();
 
+    void setRimDireitoCaptacao(float rimDireitoCaptacao);
+    float  getRimDireitoCaptacao();
+    void setRimEsquerdoCaptacao(float rimEsquerdoCaptacao);
+    float  getRimEsquerdoCaptacao();
+
+
     float calculaProfundidadeRenal(int idade, int peso, int altura);
     float calculaFatorK(float profundidadeRenal);
 
+    void calculaCaptacao(Ui::MainWindow * ui);
+
 private:
     Pessoa pessoa;
+
+    Ui::MainWindow * ui;
 
     int padrao;
     int padraoBG;
@@ -82,6 +92,10 @@ private:
     int rimEsquerdoArea;
     int rimEsquerdoBGArea;
     int rimEsquerdoTempo; // em segundos
+
+    float rimDireitoCaptacao;
+    float rimEsquerdoCaptacao;
+
 
 };
 

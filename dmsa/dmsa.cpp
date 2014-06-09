@@ -224,3 +224,57 @@ float Dmsa::calculaFatorK(float profundidadeRenal){
              - ( 0.1332F * profundidadeRenal) + 1.5015F;
 }
 
+
+void Dmsa::calculaCaptacao(Ui::MainWindow * ui){
+
+    float profundidadeRenal = this->calculaProfundidadeRenal(pessoa.getIdade(), pessoa.getPeso(), pessoa.getAltura());
+    float fatorK = this->calculaFatorK(profundidadeRenal);
+
+    ui->profundidadeRenalLabel->setText(QString::number(profundidadeRenal, 3, 3));
+    ui->fatorKLabel->setText(QString::number(fatorK, 3, 3));
+
+    float padraoSeringaCheia = ui->padraoSeringaCheiaTextBox->text().toInt();
+    float padraoSeringaVazia = ui->padraoSeringaVaziaTextBox->text().toInt();
+    float pacienteSeringaCheia = ui->pacienteSeringaCheiaTextBox->text().toInt();
+    float pacienteSeringaVazia = ui->pacienteSeringaVaziaTextBox->text().toInt();
+
+    float fatorCorrecao = ( (float)(padraoSeringaCheia - padraoSeringaVazia) ) /
+                          ( (float)(pacienteSeringaCheia - pacienteSeringaVazia) );
+
+    int rimDireito = ui->rimDireitoTextBox->text().toInt();
+    int rimEsquerdo = ui->rimEsquerdoTextBox->text().toInt();
+    float rimDireitoCorrigido = rimDireito * (fatorCorrecao / fatorK);
+    float rimEsquerdoCorrigido = rimEsquerdo * (fatorCorrecao / fatorK);
+
+    int padrao       = ui->padraoTextBox->text().toInt();
+    int padraoArea   = ui->padraoAreaTextBox->text().toInt();
+    int padraoBG     = ui->padraoBGTextBox->text().toInt();
+    int padraoBGArea = ui->padraoBGAreaTextBox->text().toInt();
+
+    float padraoCorrigido = padraoArea * ((padrao / padraoArea) - (padraoBG / padraoBGArea));
+
+    int rimDireitoArea = ui->rimDireitoAreaTextBox->text().toInt();
+    int rimDireitoBG = ui->rimDireitoBGTextBox->text().toInt();
+    int rimDireitoBGArea = ui->rimDireitoBGAreaTextBox->text().toInt();
+
+    int rimEsquerdoArea = ui->rimEsquerdoAreaTextBox->text().toInt();
+    int rimEsquerdoBG = ui->rimEsquerdoBGTextBox->text().toInt();
+    int rimEsquerdoBGArea = ui->rimEsquerdoBGAreaTextBox->text().toInt();
+
+
+    rimDireitoCorrigido  = rimDireitoArea * ((rimDireitoCorrigido / rimDireitoArea) - (rimDireitoBG / rimDireitoBGArea));
+    rimEsquerdoCorrigido = rimEsquerdoArea * ((rimEsquerdoCorrigido / rimEsquerdoArea) - (rimEsquerdoBG / rimEsquerdoBGArea));
+
+    int padraoTempo = ui->padraoTempoTextBox->text().toInt();
+    int rimDireitoTempo = ui->rimDireitoTempoTextBox->text().toInt();
+    int rimEsquerdoTempo = ui->rimEsquerdoTempoTextBox->text().toInt();
+
+    this->rimDireitoCaptacao  = 100 * ( ((float)padraoTempo) / ((float)rimDireitoTempo) ) * (rimDireitoCorrigido / padraoCorrigido);
+    this->rimEsquerdoCaptacao = 100 * ( ((float)padraoTempo) / ((float)rimEsquerdoTempo) ) * (rimEsquerdoCorrigido / padraoCorrigido);
+
+    ui->rimDireitoCaptacaoLabel->setText(QString::number(this->rimDireitoCaptacao, 3, 2));
+    ui->rimEsquerdoCaptacaoLabel->setText(QString::number(this->rimEsquerdoCaptacao, 3, 2));
+
+    ui->msgText->setPlainText("Ok!");
+}
+
