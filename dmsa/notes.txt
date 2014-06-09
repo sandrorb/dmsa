@@ -1,7 +1,0 @@
-Reminder:
-
-2012/06/24:
-  1. Improve GUI;
-  2. Functions to handle incorrect input format;
-  3. Area in the GUI for messages to user;
-  4. Refactoring in order to make classes out of rim, seringa and padrao from dmsa;
