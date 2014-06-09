@@ -229,6 +229,7 @@ void Dmsa::calculaCaptacao(Ui::MainWindow * ui){
 
     float profundidadeRenal = this->calculaProfundidadeRenal(pessoa.getIdade(), pessoa.getPeso(), pessoa.getAltura());
     float fatorK = this->calculaFatorK(profundidadeRenal);
+    //fatorK = 1.0; // for tests
 
     ui->profundidadeRenalLabel->setText(QString::number(profundidadeRenal, 3, 3));
     ui->fatorKLabel->setText(QString::number(fatorK, 3, 3));

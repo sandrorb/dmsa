@@ -409,7 +409,7 @@
      <item row="4" column="0">
       <widget class="QLabel" name="label_18">
        <property name="text">
-        <string>Tempo:</string>
+        <string>Tempo (segundos):</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -427,7 +427,7 @@
       <x>370</x>
       <y>170</y>
       <width>231</width>
-      <height>152</height>
+      <height>151</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayoutRimDireito">
@@ -460,6 +460,16 @@
      <item row="1" column="1">
       <widget class="QLineEdit" name="rimDireitoAreaTextBox"/>
      </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_13">
+       <property name="text">
+        <string>BG do Rim Direito:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
      <item row="2" column="1">
       <widget class="QLineEdit" name="rimDireitoBGTextBox"/>
      </item>
@@ -479,7 +489,7 @@
      <item row="4" column="0">
       <widget class="QLabel" name="label_19">
        <property name="text">
-        <string>Tempo:</string>
+        <string>Tempo (segundos):</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -488,16 +498,6 @@
      </item>
      <item row="4" column="1">
       <widget class="QLineEdit" name="rimDireitoTempoTextBox"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_13">
-       <property name="text">
-        <string>BG do Rim Direito:</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
      </item>
     </layout>
    </widget>
@@ -637,15 +637,15 @@
      <item row="3" column="1">
       <widget class="QLineEdit" name="padraoBGAreaTextBox"/>
      </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="padraoTempoTextBox"/>
+     </item>
      <item row="4" column="0">
       <widget class="QLabel" name="label_17">
        <property name="text">
-        <string>Tempo:</string>
+        <string>Tempo (segundos):</string>
        </property>
       </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QLineEdit" name="padraoTempoTextBox"/>
      </item>
     </layout>
    </widget>

@@ -46,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pesoTextBox->setText(QString::number(pessoa.getPeso()));
     ui->alturaTextBox->setText(QString::number(pessoa.getAltura()));
 
-    statusBar()->showMessage("DMSA v0.4.3 (c) 2014 - by Sandro Boschetti");
+    statusBar()->showMessage("DMSA v0.4.4 (c) 2014/mai/09 - by Sandro Boschetti");
     statusBar()->setStyleSheet("background-color: lightgray");
 
     QObject::connect(ui->pushButtonCalcular, SIGNAL(clicked()), this, SLOT(calcular()) );

@@ -61,12 +61,12 @@ public:
     QLineEdit *rimDireitoTextBox;
     QLabel *label_15;
     QLineEdit *rimDireitoAreaTextBox;
+    QLabel *label_13;
     QLineEdit *rimDireitoBGTextBox;
     QLabel *label_14;
     QLineEdit *rimDireitoBGAreaTextBox;
     QLabel *label_19;
     QLineEdit *rimDireitoTempoTextBox;
-    QLabel *label_13;
     QWidget *layoutWidget2;
     QGridLayout *gridLayout;
     QLabel *label_20;
@@ -88,8 +88,8 @@ public:
     QLineEdit *padraoBGTextBox;
     QLabel *label_4;
     QLineEdit *padraoBGAreaTextBox;
-    QLabel *label_17;
     QLineEdit *padraoTempoTextBox;
+    QLabel *label_17;
     QWidget *layoutWidget4;
     QFormLayout *formLayoutSeringas;
     QLabel *label_5;
@@ -256,7 +256,7 @@ public:
 
         layoutWidget1 = new QWidget(centralWidget);
         layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(370, 170, 231, 152));
+        layoutWidget1->setGeometry(QRect(370, 170, 231, 151));
         formLayoutRimDireito = new QFormLayout(layoutWidget1);
         formLayoutRimDireito->setSpacing(6);
         formLayoutRimDireito->setContentsMargins(11, 11, 11, 11);
@@ -285,6 +285,12 @@ public:
 
         formLayoutRimDireito->setWidget(1, QFormLayout::FieldRole, rimDireitoAreaTextBox);
 
+        label_13 = new QLabel(layoutWidget1);
+        label_13->setObjectName(QStringLiteral("label_13"));
+        label_13->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        formLayoutRimDireito->setWidget(2, QFormLayout::LabelRole, label_13);
+
         rimDireitoBGTextBox = new QLineEdit(layoutWidget1);
         rimDireitoBGTextBox->setObjectName(QStringLiteral("rimDireitoBGTextBox"));
 
@@ -311,12 +317,6 @@ public:
         rimDireitoTempoTextBox->setObjectName(QStringLiteral("rimDireitoTempoTextBox"));
 
         formLayoutRimDireito->setWidget(4, QFormLayout::FieldRole, rimDireitoTempoTextBox);
-
-        label_13 = new QLabel(layoutWidget1);
-        label_13->setObjectName(QStringLiteral("label_13"));
-        label_13->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        formLayoutRimDireito->setWidget(2, QFormLayout::LabelRole, label_13);
 
         layoutWidget2 = new QWidget(centralWidget);
         layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
@@ -426,15 +426,15 @@ public:
 
         formLayoutPadrao->setWidget(3, QFormLayout::FieldRole, padraoBGAreaTextBox);
 
-        label_17 = new QLabel(layoutWidget3);
-        label_17->setObjectName(QStringLiteral("label_17"));
-
-        formLayoutPadrao->setWidget(4, QFormLayout::LabelRole, label_17);
-
         padraoTempoTextBox = new QLineEdit(layoutWidget3);
         padraoTempoTextBox->setObjectName(QStringLiteral("padraoTempoTextBox"));
 
         formLayoutPadrao->setWidget(4, QFormLayout::FieldRole, padraoTempoTextBox);
+
+        label_17 = new QLabel(layoutWidget3);
+        label_17->setObjectName(QStringLiteral("label_17"));
+
+        formLayoutPadrao->setWidget(4, QFormLayout::LabelRole, label_17);
 
         layoutWidget4 = new QWidget(centralWidget);
         layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
@@ -531,12 +531,12 @@ public:
         label_10->setText(QApplication::translate("MainWindow", "\303\201rea do Rim Esquerdo:", 0));
         label_11->setText(QApplication::translate("MainWindow", "BG do Rim Esquerdo:", 0));
         label_12->setText(QApplication::translate("MainWindow", "\303\201rea BG do Rim Esquerdo:", 0));
-        label_18->setText(QApplication::translate("MainWindow", "Tempo:", 0));
+        label_18->setText(QApplication::translate("MainWindow", "Tempo (segundos):", 0));
         label_16->setText(QApplication::translate("MainWindow", "Rim Direito:", 0));
         label_15->setText(QApplication::translate("MainWindow", "\303\201rea do Rim Direito:", 0));
-        label_14->setText(QApplication::translate("MainWindow", "\303\201rea BG do Rim Direito:", 0));
-        label_19->setText(QApplication::translate("MainWindow", "Tempo:", 0));
         label_13->setText(QApplication::translate("MainWindow", "BG do Rim Direito:", 0));
+        label_14->setText(QApplication::translate("MainWindow", "\303\201rea BG do Rim Direito:", 0));
+        label_19->setText(QApplication::translate("MainWindow", "Tempo (segundos):", 0));
         label_20->setText(QApplication::translate("MainWindow", "Idade:", 0));
         label_24->setText(QApplication::translate("MainWindow", "ano(s)", 0));
         label_21->setText(QApplication::translate("MainWindow", "Peso:", 0));
@@ -547,7 +547,7 @@ public:
         label_2->setText(QApplication::translate("MainWindow", "\303\201rea do Padr\303\243o:", 0));
         label_3->setText(QApplication::translate("MainWindow", "BG Padr\303\243o:", 0));
         label_4->setText(QApplication::translate("MainWindow", "\303\201rea do BG do Padr\303\243o:", 0));
-        label_17->setText(QApplication::translate("MainWindow", "Tempo:", 0));
+        label_17->setText(QApplication::translate("MainWindow", "Tempo (segundos):", 0));
         label_5->setText(QApplication::translate("MainWindow", "Seringa do Padr\303\243o Cheia:", 0));
         label_6->setText(QApplication::translate("MainWindow", "Seringa do Padr\303\243o Vazia:", 0));
         label_7->setText(QApplication::translate("MainWindow", "Seringa do Paciente Cheia:", 0));
