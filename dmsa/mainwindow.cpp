@@ -46,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pesoTextBox->setText(QString::number(pessoa.getPeso()));
     ui->alturaTextBox->setText(QString::number(pessoa.getAltura()));
 
-    statusBar()->showMessage("DMSA v0.4.4 (c) 2014/mai/09 - by Sandro Boschetti");
+    statusBar()->showMessage("DMSA v0.4.5 (c) 2014 - by Sandro Boschetti");
     statusBar()->setStyleSheet("background-color: lightgray");
 
     QObject::connect(ui->pushButtonCalcular, SIGNAL(clicked()), this, SLOT(calcular()) );
@@ -66,8 +66,7 @@ void MainWindow::calcular() {
 
     Validate validadeFields(ui);
     if (!validadeFields.validate()) {
-        QString errorMsg = QString::fromUtf8("Há dado(s) não válido(s)! Digite somente números sem pontos e sem vírgulas.");
-        ui->msgText->setPlainText(errorMsg);
+        ui->msgText->appendPlainText(validadeFields.getMsg());
         ui->profundidadeRenalLabel->setText("");
         ui->fatorKLabel->setText("");
         ui->rimDireitoCaptacaoLabel->setText("");

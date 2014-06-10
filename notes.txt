@@ -1,5 +1,8 @@
 Reminder:
 
+I did some data validation for time fields. Although it's working, it's not ok. A lot of 
+effort must be done to separate and organise data, validation and presentation.
+
 2014/05/09:
 	0. Maybe Dmsa class shouldn't be ware of UI. See comment inside the class.
 	1. Maybe: refactoring in order to make classes out of rim, seringa and padrao from dmsa;

@@ -5,15 +5,11 @@
 // to pass the ui reference to this class.
 #include "ui_mainwindow.h"
 
+#include <iostream>
+
 Validate::Validate(Ui::MainWindow * ui) {
     this->ui = ui;
-}
 
-bool Validate::validate(){
-    bool ok = false;
-    QString fieldStr;
-
-    std::vector<QLineEdit*> fields;
     fields.push_back(ui->padraoTextBox);
     fields.push_back(ui->padraoAreaTextBox);
     fields.push_back(ui->padraoBGTextBox);
@@ -40,14 +36,61 @@ bool Validate::validate(){
     fields.push_back(ui->idadeTextBox);
     fields.push_back(ui->pesoTextBox);
     fields.push_back(ui->alturaTextBox);
+}
+
+bool Validate::validate(){
+
+    bool ok = false;
+    bool valide = true;
+    QString fieldStr;
+    int numberField(0);
 
     for (size_t i = 0; i < fields.size(); i++) {
         fieldStr = fields[i]->text();
-        fieldStr.toInt(&ok,10); // ok = true if conversion succeeds.
-        if (!ok)
-            break;
+        numberField = fieldStr.toInt(&ok,10); // ok = true if conversion succeeds.
+        valide = ok;
+        if (!valide) {
+            myMsg = QString::fromUtf8("Há dado(s) não válido(s)! Digite somente números sem pontos e sem vírgulas.");
+            return valide;
+        }
     }
-    return ok;
+
+    valide = true;
+    fieldStr = ui->padraoTempoTextBox->text();
+    numberField = fieldStr.toInt(&ok,10); // ok = true if conversion succeeds.
+    if (numberField <= 0) {
+        myMsg = QString::fromUtf8("Tempo não pode ser menor ou igual a zero!");
+        valide = false;
+        ui->padraoTempoTextBox->setStyleSheet("QLineEdit{background: orange;}");
+    } else {
+        ui->padraoTempoTextBox->setStyleSheet("QLineEdit{background: white;}");
+    }
+
+    fieldStr = ui->rimEsquerdoTempoTextBox->text();
+    numberField = fieldStr.toInt(&ok,10); // ok = true if conversion succeeds.
+    if (numberField <= 0) {
+        myMsg = QString::fromUtf8("Tempo não pode ser menor ou igual a zero!");
+        valide = false;
+        ui->rimEsquerdoTempoTextBox->setStyleSheet("QLineEdit{background: orange;}");
+    } else {
+        ui->rimEsquerdoTempoTextBox->setStyleSheet("QLineEdit{background: white;}");
+    }
+
+    fieldStr = ui->rimDireitoTempoTextBox->text();
+    numberField = fieldStr.toInt(&ok,10); // ok = true if conversion succeeds.
+    if (numberField <= 0) {
+        myMsg = QString::fromUtf8("Tempo não pode ser menor ou igual a zero!");
+        valide = false;
+        ui->rimDireitoTempoTextBox->setStyleSheet("QLineEdit{background: orange;}");
+    } else {
+        ui->rimDireitoTempoTextBox->setStyleSheet("QLineEdit{background: white;}");
+    }
+
+    return valide;
+}
+
+QString Validate::getMsg(){
+    return this->myMsg;
 }
 
 //void Validate::setFields(std::vector<QLineEdit *> fields){

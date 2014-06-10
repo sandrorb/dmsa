@@ -6,9 +6,9 @@ applications rest in a folder). To run it, download the entire project (see the 
 link on the right) and double click the "folder" app. Alternatively, one can download
 the project from the page: http://sandrorb.github.io/dmsa.
 
-If a file like dmsa.exe or dmsa*.exe is found in the executable folder, it means a 
-windows version has been issued for this MacOSX's application version. Windows version
-has been obtained by cross compilation of the MacOSX version using MXE tool.
+In the executable folder there is a file called dmsa-qt-win.exe which is the windows 
+version. This version has been obtained by cross compilation of the MacOSX version 
+using MXE tool.
 
 If you decide to download and test it or use it, please let me know and/or report your
 experience using it.
