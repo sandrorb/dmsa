@@ -40,31 +40,45 @@ Validate::Validate(Ui::MainWindow * ui) {
 
 bool Validate::validate(){
 
+    QString bgErrorField = "QLineEdit{background: orange;}";
+    QString bgField = "QLineEdit{background: white;}";
+
+// Set back all BG fields to the normal color.
+    for (size_t i = 0; i < fields.size(); i++) {
+        fields[i]->setStyleSheet(bgField);
+    }
+
     bool ok = false;
     bool valide = true;
     QString fieldStr;
     int numberField(0);
 
+    // For all input fields, only accept integer. No dot. No comma.
     for (size_t i = 0; i < fields.size(); i++) {
         fieldStr = fields[i]->text();
         numberField = fieldStr.toInt(&ok,10); // ok = true if conversion succeeds.
-        valide = ok;
-        if (!valide) {
-            myMsg = QString::fromUtf8("Há dado(s) não válido(s)! Digite somente números sem pontos e sem vírgulas.\n");
-            return valide;
+        if (!ok) {
+            valide = ok;
+            fields[i]->setStyleSheet(bgErrorField);
         }
     }
 
+    if (!valide) {
+        myMsg = QString::fromUtf8("Há dado(s) não válido(s)! Digite somente números sem pontos e sem vírgulas.\n");
+        return valide;
+    }
+
+    // Range tests for all input fields.
     valide = true;
 
     fieldStr = ui->padraoTextBox->text();
     numberField = fieldStr.toInt(&ok,10); // ok = true if conversion succeeds.
-    if (numberField < 0) {
+    if (numberField <= 0) {
         myMsg = myMsg + QString::fromUtf8("Contagem do padrão deve ser maior que zero!\n");
         valide = false;
-        ui->padraoTextBox->setStyleSheet("QLineEdit{background: orange;}");
+        ui->padraoTextBox->setStyleSheet(bgErrorField);
     } else {
-        ui->padraoTextBox->setStyleSheet("QLineEdit{background: white;}");
+        ui->padraoTextBox->setStyleSheet(bgField);
     }
 
     fieldStr = ui->padraoAreaTextBox->text();

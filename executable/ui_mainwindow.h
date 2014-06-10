@@ -320,7 +320,7 @@ public:
 
         layoutWidgetPaciente = new QWidget(centralWidget);
         layoutWidgetPaciente->setObjectName(QStringLiteral("layoutWidgetPaciente"));
-        layoutWidgetPaciente->setGeometry(QRect(490, 11, 171, 121));
+        layoutWidgetPaciente->setGeometry(QRect(490, 11, 171, 91));
         gridLayoutPaciente = new QGridLayout(layoutWidgetPaciente);
         gridLayoutPaciente->setSpacing(6);
         gridLayoutPaciente->setContentsMargins(11, 11, 11, 11);

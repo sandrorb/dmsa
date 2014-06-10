@@ -507,7 +507,7 @@
       <x>490</x>
       <y>11</y>
       <width>171</width>
-      <height>121</height>
+      <height>91</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayoutPaciente">
